@@ -1,0 +1,5 @@
+rule:
+    "dummy" -> "dummy"
+    ["\(" rule=rule "\)"] -> "{" rule "}"
+    ["\{" rule=rule "\}"] -> "(" rule ")"
+    "(?P<bab>[a-z]*)" -> bab

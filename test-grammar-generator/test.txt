@@ -1,0 +1,20 @@
+nested9:
+  ["\(" nested8=nested8 "\)"] -> "[" nested8 "]"
+nested8:
+  ["\(" nested7=nested7 "\)"] -> "[" nested7 "]"
+nested7:
+  ["\(" nested6=nested6 "\)"] -> "[" nested6 "]"
+nested6:
+  ["\(" nested5=nested5 "\)"] -> "[" nested5 "]"
+nested5:
+  ["\(" nested4=nested4 "\)"] -> "[" nested4 "]"
+nested4:
+  ["\(" nested3=nested3 "\)"] -> "[" nested3 "]"
+nested3:
+  ["\(" nested2=nested2 "\)"] -> "[" nested2 "]"
+nested2:
+  ["\(" nested1=nested1 "\)"] -> "[" nested1 "]"
+nested1:
+  ["\(" nested0=nested0 "\)"] -> "[" nested0 "]"
+nested0:
+  "a" -> "a"
