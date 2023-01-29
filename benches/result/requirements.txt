@@ -1,0 +1,4 @@
+jsonlines=3.1.0=pypi_0
+matplotlib=3.6.3=pypi_0
+numpy=1.23.5=pypi_0
+scienceplots=2.0.1=pypi_0

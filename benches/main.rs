@@ -1,6 +1,7 @@
 use criterion::criterion_main;
 
 mod generation;
+mod identifier;
 mod nested;
 mod regular;
-criterion_main!(regular::bench, nested::bench, generation::bench);
+criterion_main!(identifier::bench);

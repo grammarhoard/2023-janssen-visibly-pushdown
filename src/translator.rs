@@ -23,7 +23,7 @@ impl Translator {
     ///
     /// ```
     /// use std::fs;
-    /// use vpl_parser_generator::Tranlator;
+    /// use vpl_parser_generator::Translator;
     ///
     /// let string = fs::read_to_string("examples/a-lang.vpa").unwrap();
     /// let mut translator = Translator::new(&string).unwrap();
@@ -62,7 +62,7 @@ impl Translator {
     pub fn translate(&mut self, text: &str) -> Option<String> {
         let (parse_tree, mut size) = self.recognizer.parse(text)?;
         size += self.terminal_size();
-        let mut current_node = parse_tree;
+        let mut current_node = parse_tree.clone();
         let mut result: String = String::with_capacity(size);
         let mut queue: Vec<TranslateAction> = Vec::new();
         self.add_rule_source_items(&current_node, &mut queue);
@@ -76,6 +76,7 @@ impl Translator {
                     match value {
                         crate::recognizer::Child::Node(n) => {
                             current_node = n.clone();
+                            queue.push(TranslateAction::Parent);
                             self.add_rule_source_items(&current_node, &mut queue);
                         }
                         crate::recognizer::Child::Leaf(l) => {
@@ -99,7 +100,6 @@ impl Translator {
     ) {
         let n = &mut *current_node.borrow_mut();
         let rule = self.grammar.nonterminals[n.identifier].rules[n.rule_nr].clone();
-        queue.push(TranslateAction::Parent);
         rule.transform
             .regs
             .iter()
