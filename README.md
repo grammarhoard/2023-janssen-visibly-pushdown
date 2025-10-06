@@ -1,5 +1,5 @@
 # vpl-parser-generator
-Rust parser and translator generator for the language class of Visiply Pushdown Grammars.
+Rust parser and translator generator for the language class of Visibly Pushdown Grammars.
 This library is part of an academic research paper for a Bachelor Thesis, which will be linked after it is released.
 This is currently not published on https://crates.io.
 
